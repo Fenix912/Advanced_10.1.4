@@ -1,26 +1,25 @@
 package com.example.storebookservice.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 
-@Data
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "books")
-@ToString
+@Data
 public class Book {
-
-    @Id
-    private Long id;
+    private int id;
     private String name;
     private String description;
     private String status;
-    private double price;
+    private int price;
+
+    @Builder
+    public Book(int id, String name, String description, String status, int price) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.status = status;
+        this.price = price;
+    }
 }

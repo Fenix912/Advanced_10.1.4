@@ -1,17 +1,21 @@
 package com.example.checkbookservice.model;
 
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 @Data
 public class Book {
-    private Long id;
+    private int id;
     private String name;
     private String description;
     private String status;
-    private double price;
+    private int price;
 
-    public Book(Long id, String name, String description, String status, double price) {
+    @Builder
+    public Book(int id, String name, String description, String status, int price) {
         this.id = id;
         this.name = name;
         this.description = description;
